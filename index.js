@@ -9,7 +9,7 @@ const app = express();
 app.use(session({ secret: 'e5f8d604f3fc45e8ba3cc499b435fb45aaa2f6b4-key', resave: true, saveUninitialized: true }));
 
 // Enable CORS for all routes
-app.use(cors({ origin: 'http://localhost:51381', credentials: true }));
+app.use(cors({ origin: 'https://git-auth-b4j9.onrender.com', credentials: true }));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -50,7 +50,7 @@ app.get('/auth/github', passport.authenticate('github'));
 // GitHub callback after authentication
 
 app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res) => {
-  res.redirect('https://social-login-ashen.vercel.app/user-details');
+  res.redirect('https://git-auth-b4j9.onrender.com/user-details');
  gitData = req.user
 });
 
